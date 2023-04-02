@@ -4,13 +4,15 @@ import { MbwxsExector } from "./exector";
 import { TxtFile, PdfFile, MobiFile, EpubFile } from "./utils/genfile";
 const chalk = require("chalk");
 
-async function exec(cmd: String, config: IConfig) {
+async function exec(config: IConfig) {
     try {
         console.log(CONST_VIRS.spinner.start);
 
         handleConfig(config);
 
+        let cmd = config.source;
         let exector;
+        
         //add command handler here
         switch (cmd) {
             case COMMAND.MBWXS:

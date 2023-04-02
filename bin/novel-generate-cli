@@ -14,19 +14,17 @@ program.option('-sr, --source <source>', "the data's source")
 //version
 program.version(require("../package.json").version, '-v, --version');
 
-// generate
-program.command('generate')
+// run
+program.command('run')
     .option('-bi, --bookid <bookid>', "the id of book")
     .option('-sc, --startchapter <startchapter>', "start chapter")
     .option('-ec, --endchapter <endchapter>', "end chapter")
     .option('-pc, --pageperchapter <pageperchapter>', "page per chapter")
     .option('-rt, --retrytimes <retrytimes>', "retry when failure")
     .option('-st, --sleeptimes <sleeptimes>', "every request's delay time (ms)")
-    .description("generate")
+    .description("run")
     .action((option, cmd) => {
-        let comConfig = program.opts();
-        let cmdName = comConfig.source;
-        exec(cmdName, { ...program.opts(), ...option });
+        exec({ ...program.opts(), ...option });
     })
 
 program.parse(process.argv);

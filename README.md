@@ -18,10 +18,10 @@ yarn add novel-generate-cli
 
 Property | Description | Type | Default | Required | Range | Command |
 ---------|----------|---------|----------|---------|---------|---------|
-source | the data's source | String | "mbwxs" | true | mbwxs | -sr |
+source | the data's source | String | "mbwxs" | false | mbwxs | -sr |
 filename | the output file 's name | String | "novel" | false | - | -fn |
 filetype | the output file 's type | String | ".txt" | false | .txt | -ft |
-threadnumber | the number of thread | Number | 1 | false | - | -tn |
+threadnumber | the number of thread | Number | 12 | false | - | -tn |
 
 ## mbwxs
 
@@ -36,13 +36,15 @@ sleeptimes | every request's delay time (ms) | Number | 500 | false | - | -st|
 
 # How to use it
 
+## mbwxs
+
 《我，白衣剑仙，你们叫我莽金刚》
 最后一章url为:https://www.mbwxs.com/info/12425/311_2.html
 
-那么bookid为12425, 每章2页, 则pc为2, 终章为311章
+那么bookid为12425, 终章为311章
 
 ```
-novel-generate-cli generate -sr mbwxs -fn 白衣剑仙 -tn 12 -bi 12425 -ec 311
+novel-generate-cli run -fn 白衣剑仙 -bi 12425 -ec 311
 ```
 
 执行此命令即可自动生成《白衣剑仙.txt》

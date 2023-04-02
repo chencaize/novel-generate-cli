@@ -1,4 +1,4 @@
-import { CONST_VIRS } from "../vir";
+import { CONST_VIRS, COMMAND } from "../vir";
 
 export interface IConfig {
     source: string,
@@ -18,9 +18,9 @@ export interface MBWXSConfig extends IConfig {
 
 export function handleConfig(config: IConfig) {
     if (!config.source) {
-        throw Error("source is empty");
+        config.source = COMMAND.MBWXS;
     }
-
+    
     if (!config.filename) {
         config.filename = CONST_VIRS.defaultfilename;
     }
@@ -30,7 +30,7 @@ export function handleConfig(config: IConfig) {
     }
 
     if (!config.threadnumber) {
-        config.threadnumber = 1;
+        config.threadnumber = 12;
     } else {
         config.threadnumber = parseInt("" + config.threadnumber);
     }
@@ -39,6 +39,8 @@ export function handleConfig(config: IConfig) {
 export function handleMBWXSConfig(config: MBWXSConfig) {
     if (!config.bookid) {
         throw Error("mbwxs bookid is empty");
+    } else {
+        config.bookid = parseInt("" + config.bookid);
     }
 
     if (!config.startchapter) {

@@ -7,7 +7,7 @@ export const CONST_VIRS = {
     spinner: {
         start: "任务开始执行...",
         exec: "任务执行中...%s",
-        end: "任务执行完毕...",
+        end: "\n任务执行完毕...",
         style: "|/-\\",
     }, //加载效果
     filetype: {

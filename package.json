@@ -1,6 +1,6 @@
 {
   "name": "novel-generate-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "description",
   "bin": {
     "novel-generate-cli": "bin/novel-generate-cli"
