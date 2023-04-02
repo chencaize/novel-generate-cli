@@ -1,0 +1,46 @@
+{
+  "name": "novel-generate-cli",
+  "version": "1.0.2",
+  "description": "description",
+  "bin": {
+    "novel-generate-cli": "bin/novel-generate-cli"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "types",
+    "node_modules"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf lib && rimraf types",
+    "build": "npm run clean && tsc",
+    "start": "npm run clean && tsc --watch"
+  },
+  "keywords": [
+    "nove",
+    "generate",
+    "cli",
+    ".txt"
+  ],
+  "author": "Caize Chen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chencaize/novel-generate-cli"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "chalk": "^4",
+    "cheerio": "^1.0.0-rc.12",
+    "cli-spinner": "^0.2.10",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
+    "piscina": "^3.2.0",
+    "typescript": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "rimraf": "^4.4.1"
+  }
+}

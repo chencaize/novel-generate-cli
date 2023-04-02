@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const program = require("commander");
+const path = require("path");
+
+const exec = require(path.resolve(__dirname, "../lib/index.js"));
+
+//global options
+program.option('-sr, --source <source>', "the data's source")
+    .option('-fn, --filename <filename>', "the output file 's name")
+    .option('-ft, --filetype <filetype>', "the output file 's type")
+    .option('-tn, --threadnumber <threadnumber>', "the number of thread")
+
+//version
+program.version(require("../package.json").version, '-v, --version');
+
+// generate
+program.command('generate')
+    .option('-bi, --bookid <bookid>', "the id of book")
+    .option('-sc, --startchapter <startchapter>', "start chapter")
+    .option('-ec, --endchapter <endchapter>', "end chapter")
+    .option('-pc, --pageperchapter <pageperchapter>', "page per chapter")
+    .option('-rt, --retrytimes <retrytimes>', "retry when failure")
+    .option('-st, --sleeptimes <sleeptimes>', "every request's delay time (ms)")
+    .description("generate")
+    .action((option, cmd) => {
+        let comConfig = program.opts();
+        let cmdName = comConfig.source;
+        exec(cmdName, { ...program.opts(), ...option });
+    })
+
+program.parse(process.argv);
